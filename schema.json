@@ -1,0 +1,585 @@
+{
+  "rct": {
+    "type": "object",
+    "required": [
+      "rsm:Receipt_CrossIndustryInvoice"
+    ],
+    "additionalProperties": true,
+    "properties": {
+      "rsm:Receipt_CrossIndustryInvoice": {
+        "type": "object",
+        "required": [
+          "rsm:ExchangedDocumentContext",
+          "rsm:ExchangedDocument",
+          "rsm:SupplyChainTradeTransaction"
+        ],
+        "additionalProperties": true,
+        "properties": {
+          "rsm:ExchangedDocumentContext": {
+            "type": "object",
+            "required": [
+              "ram:GuidelineSpecifiedDocumentContextParameter"
+            ],
+            "properties": {
+              "ram:GuidelineSpecifiedDocumentContextParameter": {
+                "type": "object",
+                "required": [
+                  "ram:ID"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "ram:ID": {
+                    "type": "object",
+                    "required": [
+                      "schemeAgencyID",
+                      "schemeVersionID",
+                      "textNode"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "schemeAgencyID": {
+                        "type": "string",
+                        "pattern": "ETDA"
+                      },
+                      "schemeVersionID": {
+                        "type": "string",
+                        "pattern": "v2.0"
+                      },
+                      "textNode": {
+                        "type": "string",
+                        "pattern": "ER3-2560",
+                        "maxLength": 35
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "rsm:ExchangedDocument": {
+            "type": "object",
+            "required": [
+              "ram:ID",
+              "ram:Name",
+              "ram:TypeCode",
+              "ram:IssueDateTime",
+              "ram:CreationDateTime"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "ram:ID": {
+                "type": "string",
+                "maxLength": 35
+              },
+              "ram:Name": {
+                "type": "string",
+                "maxLength": 35
+              },
+              "ram:TypeCode": {
+                "type": "string"
+              },
+              "ram:IssueDateTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "ram:Purpose": {
+                "type": "string",
+                "maxLength": 256
+              },
+              "ram:PurposeCode": {
+                "type": "string"
+              },
+              "ram:GlobalID": {
+                "type": "string",
+                "maxLength": 70
+              },
+              "ram:CreationDateTime": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "ram:IncludedNote": {
+                "type": "object",
+                "required": [],
+                "additionalProperties": true,
+                "properties": {
+                  "ram:Subject": {
+                    "type": "string",
+                    "maxLength": 500
+                  },
+                  "ram:Content": {
+                    "type": "string",
+                    "maxLength": 500
+                  }
+                }
+              }
+            }
+          },
+          "rsm:SupplyChainTradeTransaction": {
+            "type": "object",
+            "required": [
+              "ram:ApplicableHeaderTradeAgreement",
+              "ram:ApplicableHeaderTradeDelivery",
+              "ram:ApplicableHeaderTradeSettlement",
+              "ram:IncludedSupplyChainTradeLineItem"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "ram:ApplicableHeaderTradeAgreement": {
+                "type": "object",
+                "required": [
+                  "ram:SellerTradeParty",
+                  "ram:BuyerTradeParty"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "ram:SellerTradeParty": {
+                    "type": "object",
+                    "required": [
+                      "ram:Name",
+                      "ram:SpecifiedTaxRegistration",
+                      "ram:PostalTradeAddress"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:ID": {
+                        "type": "string",
+                        "maxLength": 35,
+                        "pattern": "[a-zA-Z0-9]"
+                      },
+                      "ram:GlobalID": {
+                        "type": "string",
+                        "maxLength": 70
+                      },
+                      "ram:Name": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "ram:SpecifiedTaxRegistration": {
+                        "type": "object",
+                        "required": [
+                          "ram:ID"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "ram:ID": {
+                            "type": "object",
+                            "required": [
+                              "schemeID",
+                              "textNode"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                              "schemeID": {
+                                "type": "string"
+                              },
+                              "textNode": {
+                                "type": "string",
+                                "maxLength": 35,
+                                "pattern": "[a-zA-Z0-9]"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ram:PostalTradeAddress": {
+                        "type": "object",
+                        "required": [
+                          "ram:PostcodeCode",
+                          "ram:LineOne",
+                          "ram:LineTwo",
+                          "ram:CityName",
+                          "ram:CitySubDivisionName",
+                          "ram:CountryID",
+                          "ram:CountrySubDivisionID",
+                          "ram:BuildingNumber"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "ram:PostcodeCode": {
+                            "type": "string",
+                            "maxLength": 16
+                          },
+                          "ram:BuildingName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:LineOne": {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          "LineTwo": {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          "LineThree": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "LineFour": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "LineFive": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:StreetName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CityName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CitySubDivisionName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CountryID": {
+                            "type": "object",
+                            "required": [
+                              "schemeID",
+                              "textNode"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                              "schemeID": {
+                                "type": "string",
+                                "pattern": "3166-1 alpha-2"
+                              },
+                              "textNode": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "ram:CountrySubDivisionID": {
+                            "type": "string",
+                            "maxLength": 35
+                          },
+                          "ram:BuildingNumber": {
+                            "type": "string",
+                            "maxLength": 16
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ram:BuyerTradeParty": {
+                    "type": "object",
+                    "required": [
+                      "ram:Name",
+                      "ram:SpecifiedTaxRegistration",
+                      "ram:PostalTradeAddress"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:ID": {
+                        "type": "string",
+                        "maxLength": 35,
+                        "pattern": "[a-zA-Z0-9]"
+                      },
+                      "ram:GlobalID": {
+                        "type": "string",
+                        "maxLength": 70
+                      },
+                      "ram:Name": {
+                        "type": "string",
+                        "maxLength": 256
+                      },
+                      "ram:SpecifiedTaxRegistration": {
+                        "type": "object",
+                        "required": [
+                          "ram:ID"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "ram:ID": {
+                            "type": "object",
+                            "required": [
+                              "schemeID",
+                              "textNode"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                              "schemeID": {
+                                "type": "string"
+                              },
+                              "textNode": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "ram:PostalTradeAddress": {
+                        "type": "object",
+                        "required": [
+                          "ram:CountryID"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "ram:PostcodeCode": {
+                            "type": "string",
+                            "maxLength": 16
+                          },
+                          "ram:BuildingName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:LineOne": {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          "LineTwo": {
+                            "type": "string",
+                            "maxLength": 256
+                          },
+                          "LineThree": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "LineFour": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "LineFive": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:StreetName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CityName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CitySubDivisionName": {
+                            "type": "string",
+                            "maxLength": 70
+                          },
+                          "ram:CountryID": {
+                            "type": "object",
+                            "required": [
+                              "schemeID",
+                              "textNode"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                              "schemeID": {
+                                "type": "string",
+                                "pattern": "3166-1 alpha-2"
+                              },
+                              "textNode": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "ram:CountrySubDivisionID": {
+                            "type": "string",
+                            "maxLength": 35
+                          },
+                          "ram:BuildingNumber": {
+                            "type": "string",
+                            "maxLength": 16
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "ram:AdditionalReferencedDocument": {
+                    "type": "object",
+                    "required": [],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:IssuerAssignedID": {
+                        "type": "string",
+                        "maxLength": 35
+                      },
+                      "ram:IssueDateTime": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "ram:ReferenceTypeCode": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              },
+              "ram:ApplicableHeaderTradeDelivery": {
+                "type": "string"
+              },
+              "ram:ApplicableHeaderTradeSettlement": {
+                "type": "object",
+                "required": [
+                  "ram:SpecifiedTradeSettlementHeaderMonetarySummation"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "ram:ApplicableTradeTax":{
+                      "type": "object",
+                      "required": [
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "ram:TypeCode":{
+                          "type": "string"
+                        },
+                        "ram:CalculatedRate":{
+                          "type": "string"
+                        },
+                        "ram:BasisAmount":{
+                          "type": "object",
+                          "required": [
+                            "currencyID",
+                            "textNode"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "currencyID": {
+                              "type": "string"
+                            },
+                            "textNode": {
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "ram:CalculatedAmount":{
+                          "type": "object",
+                          "required": [
+                            "currencyID",
+                            "textNode"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "currencyID": {
+                              "type": "string"
+                            },
+                            "textNode": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      }
+                  },
+                  "ram:SpecifiedTradeSettlementHeaderMonetarySummation": {
+                    "type": "object",
+                    "required": [
+                      "ram:GrandTotalAmount"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:GrandTotalAmount": {
+                        "type": "object",
+                        "required": [
+                          "currencyID",
+                          "textNode"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "currencyID": {
+                            "type": "string"
+                          },
+                          "textNode": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "ram:IncludedSupplyChainTradeLineItem": {
+                "type": "object",
+                "required": [
+                  "ram:AssociatedDocumentLineDocument",
+                  "ram:SpecifiedTradeProduct",
+                  "ram:SpecifiedLineTradeAgreement",
+                  "ram:SpecifiedLineTradeDelivery",
+                  "ram:SpecifiedLineTradeSettlement"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "ram:AssociatedDocumentLineDocument": {
+                    "type": "object",
+                    "required": [
+                      "ram:LineID"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:LineID": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ram:SpecifiedTradeProduct": {
+                    "type": "object",
+                    "required": [
+                      "ram:Name"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:Name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ram:SpecifiedLineTradeAgreement": {
+                    "type": "string"
+                  },
+                  "ram:SpecifiedLineTradeDelivery": {
+                    "type": "object",
+                    "required": [
+                      "ram:BilledQuantity"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:BilledQuantity": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "ram:SpecifiedLineTradeSettlement": {
+                    "type": "object",
+                    "required": [
+                      "ram:SpecifiedTradeSettlementLineMonetarySummation"
+                    ],
+                    "additionalProperties": true,
+                    "properties": {
+                      "ram:SpecifiedTradeSettlementLineMonetarySummation": {
+                        "type": "object",
+                        "required": [
+                          "ram:NetIncludingTaxesLineTotalAmount"
+                        ],
+                        "additionalProperties": true,
+                        "properties": {
+                          "ram:NetIncludingTaxesLineTotalAmount": {
+                            "type": "object",
+                            "required": [
+                              "currencyID",
+                              "textNode"
+                            ],
+                            "additionalProperties": true,
+                            "properties": {
+                              "currencyID": {
+                                "type": "string"
+                              },
+                              "textNode": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
